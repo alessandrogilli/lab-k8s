@@ -73,6 +73,12 @@
     minikube addons enable metrics-server
     minikube addons enable dashboard 
     ```
+- Wait until all Pods are up and running:
+    ```bash
+     kubectl get po -A
+    ```
+
+    ![Alt text](img/running.png "a title")
 
 ### Kubernetes Dashboard
 Open a new terminal and type
@@ -155,7 +161,7 @@ At this point you can push the built docker image to [Docker Hub](https://hub.do
     ```
 In addition to this step, you can start the script that floods the service with requests, update the deployment, and see how the responses change. An example of invocation of the script, sending 10000 requests, is the following:
 ```bash
-python flood.py --requests 10000 http://<address-provided-by-minikube>:30000
+python flood.py --requests 500 --workers 1 --delay 0.5 http://<address-provided-by-minikube>:30000
 ```
 
 ### Scale out the Deployment
@@ -176,6 +182,6 @@ Check the Dashboard to see the changes.
     ```
 - Flood with requests the deployment, to see if it scales
     ```bash
-    python flood.py --requests 100000 http://<address-provided-by-minikube>:30000
+    python flood.py --requests 10000 http://<address-provided-by-minikube>:30000
     ```
 Check the Dashboard or HPA status and wait a few moments to see the changes.

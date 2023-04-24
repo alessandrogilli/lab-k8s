@@ -78,7 +78,7 @@
      kubectl get po -A
     ```
 
-    ![Alt text](img/running.png "a title")
+    ![Alt text](img/running.png "kubectl get po -A")
 
 ### Kubernetes Dashboard
 Open a new terminal and type
